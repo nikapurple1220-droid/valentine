@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 🤍</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", "Arial", sans-serif;
+      background: #f7f1e8;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 600px;
+      background: white;
+      padding: 50px 40px 60px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .emoji {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 35px;
+    }
+
+    button {
+      padding: 12px 22px;
+      font-size: 1rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background: #d88c9a;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ddd;
+    }
+
+    #message {
+      margin-top: 25px;
+      font-size: 1.1rem;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="card">
+    <div class="emoji">👩‍❤️‍👨💌</div>
+    <h1>Faisal, will you be my Valentine? 🤍</h1>
+
+    <button id="yesBtn">YES 💖</button>
+    <button id="noBtn">No 🙃</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const noMessages = [
+      "Are you sure? 🥺",
+      "Are you sureeeee 😭",
+      "Are you very sureeee?",
+      "Are you VERY very suree??",
+      "Okay… think again 😐",
+      "Hmm… this feels wrong 😔",
+      "You’re kinda being rude now 😶",
+      "Damn… that actually hurts 💔",
+      "Wow okay. Ouch.",
+      "I’m judging you silently 😤",
+      "This is emotional damage.",
+      "Do you enjoy my suffering?",
+      "Last chance. Seriously.",
+      "Wow. Still no?",
+      "Okay fine. Let’s restart 😒"
+    ];
+
+    let noCount = 0;
+    let yesSize = 16;
+
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+
+    noBtn.onclick = () => {
+      message.innerText = noMessages[noCount];
+      yesSize += 6;
+      yesBtn.style.fontSize = yesSize + "px";
+      noCount++;
+
+      if (noCount === noMessages.length) {
+        setTimeout(() => {
+          alert("Okay okay 😤 let’s try that again properly.");
+          location.reload();
+        }, 600);
+      }
+    };
+
+    yesBtn.onclick = () => {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          background:#f7f1e8;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          text-align:center;
+          font-family:Comic Sans MS;
+        ">
+          <div>
+            <h1>YAYYYYY 💖🥰</h1>
+            <p style="font-size:1.3rem">You’re officially my Valentine 🤍</p>
+            <p>Now screenshot this and send it 😌</p>
+          </div>
+        </div>
+      `;
+    };
+  </script>
+
+</body>
+</html>
